@@ -41,6 +41,10 @@ app.use(session(sessionOptions));
 UserRoutes(app);
 CourseRoutes(app);
 Lab5(app);
+// Root route: helpful message for browser requests to '/'
+app.get('/', (req, res) => {
+  res.json({ status: 'ok', message: 'Kambaz Node Server is running. Use /api endpoints.' });
+});
 ModuleRoutes(app);
 
 const PORT = process.env.PORT || 4000;
