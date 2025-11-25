@@ -11,3 +11,7 @@ export function enrollUserInCourse(userId, courseId) {
 export function findEnrollmentsForUser(userId) {
   return Database.enrollments.filter((e) => e.user === userId);
 }
+
+export function findEnrollmentsForCourse(courseId) {
+  return Database.enrollments.filter((e) => e.course === courseId);
+}

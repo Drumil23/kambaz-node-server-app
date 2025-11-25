@@ -15,7 +15,16 @@ export default function UserRoutes(app) {
   };
 
   const findAllUsers = (req, res) => {
-    res.json(dao.findAllUsers());
+    const { course } = req.query;
+    if (course) {
+      // Filter users enrolled in the specified course
+      const enrollments = enrollmentsDao.findEnrollmentsForCourse(course);
+      const userIds = enrollments.map(e => e.user);
+      const users = userIds.map(id => dao.findUserById(id)).filter(u => u);
+      res.json(users);
+    } else {
+      res.json(dao.findAllUsers());
+    }
   };
 
   const findUserById = (req, res) => {
