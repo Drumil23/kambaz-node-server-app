@@ -5,6 +5,7 @@ import cors from "cors";
 import UserRoutes from "./Kambaz/Users/routes.js";
 import CourseRoutes from "./Kambaz/Courses/routes.js";
 import ModuleRoutes from "./Kambaz/Modules/routes.js";
+import AssignmentRoutes from "./Kambaz/Assignments/routes.js";
 import session from "express-session"; 
 import "dotenv/config"; 
 const app = express()
@@ -40,6 +41,7 @@ app.use(session(sessionOptions));
 
 UserRoutes(app);
 CourseRoutes(app);
+AssignmentRoutes(app);
 Lab5(app);
 // Root route: helpful message for browser requests to '/'
 app.get('/', (req, res) => {
