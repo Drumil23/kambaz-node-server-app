@@ -9,10 +9,14 @@ import AssignmentRoutes from "./Kambaz/Assignments/routes.js";
 import session from "express-session"; 
 import "dotenv/config"; 
 const app = express()
+
+// CORS must be first - before any routes or other middleware
 app.use(cors({
     credentials: true,
     origin: process.env.CLIENT_URL || "http://localhost:3000",
 }));
+
+// Body parsing middleware
 app.use(express.json());
 
 // Session configuration (single definition)
@@ -37,6 +41,7 @@ if (process.env.SERVER_ENV !== "development") {
   };
 }
 
+// Session middleware after CORS
 app.use(session(sessionOptions));
 
 UserRoutes(app);
