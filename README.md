@@ -140,7 +140,7 @@ If you encounter CORS errors:
 - Verify `SERVER_ENV` is set to `production` for deployed environments
 - Check that cookies are enabled in your browser
 
-## 👤 Author
+## Author
 
 **Drumil Kotecha**
 
