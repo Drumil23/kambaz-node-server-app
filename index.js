@@ -1,5 +1,5 @@
 import express from 'express';
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
 
 import Hello from "./Hello.js"
 import Lab5 from "./Lab5/index.js";
@@ -12,8 +12,9 @@ import session from "express-session";
 import "dotenv/config"; 
 const app = express()
 
-const CONNECTION_STRING = process.env.DATABASE_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kambaz"
-mongoose.connect(CONNECTION_STRING);
+// Temporarily disable MongoDB until it's properly set up
+// const CONNECTION_STRING = process.env.DATABASE_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kambaz"
+// mongoose.connect(CONNECTION_STRING);
 
 app.use(cors({
     credentials: true,
