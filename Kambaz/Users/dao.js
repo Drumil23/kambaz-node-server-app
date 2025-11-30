@@ -1,11 +1,10 @@
 import db from "../Database/index.js";
-import { v4 as uuidv4 } from "uuid";
 
 let { users } = db;
 
 export const createUser = (user) => {
-  const newUser = { ...user, _id: uuidv4() };
-  users = [...users, newUser];
+  const newUser = { ...user, _id: Date.now().toString() };
+  users.push(newUser);
   return newUser;
 };
 
@@ -18,6 +17,17 @@ export const findUserByUsername = (username) => users.find((user) => user.userna
 export const findUserByCredentials = (username, password) =>
   users.find((user) => user.username === username && user.password === password);
 
-export const updateUser = (userId, user) => (users = users.map((u) => (u._id === userId ? user : u)));
+export const updateUser = (userId, userUpdates) => {
+  const user = users.find((user) => user._id === userId);
+  Object.assign(user, userUpdates);
+  return user;
+};
 
-export const deleteUser = (userId) => (users = users.filter((u) => u._id !== userId));
+export const deleteUser = (userId) => {
+  users = users.filter((user) => user._id !== userId);
+  db.users = users;
+};
+
+export const findUsersByRole = (role) => users.filter((user) => user.role === role);
+
+

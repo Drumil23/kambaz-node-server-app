@@ -46,5 +46,17 @@ export default [
     role: "student",
     lastActivity: "2025-11-18",
     totalActivity: "8h 45m"
+  },
+  {
+    _id: "u5",
+    username: "jose",
+    password: "jose",
+    firstName: "Jose",
+    lastName: "Rodriguez",
+    loginId: "jose_r",
+    section: "S101",
+    role: "ADMIN",
+    lastActivity: "2025-11-30",
+    totalActivity: "0h 00m"
   }
 ];
