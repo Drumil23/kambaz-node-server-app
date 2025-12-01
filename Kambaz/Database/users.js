@@ -58,5 +58,17 @@ export default [
     role: "ADMIN",
     lastActivity: "2025-11-30",
     totalActivity: "0h 00m"
+  },
+  {
+    _id: "u6",
+    username: "Ankita",
+    password: "123",
+    firstName: "Ankita",
+    lastName: "M",
+    loginId: "ankita_m",
+    section: "S101",
+    role: "TA",
+    lastActivity: "2025-11-30",
+    totalActivity: "5h 34m"
   }
 ];

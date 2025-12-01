@@ -29,3 +29,12 @@ export const deleteUser = (userId) => {
 };
 
 export const findUsersByRole = (role) => users.filter((user) => user.role === role);
+
+export const findUsersByPartialName = (partialName) => {
+  const searchTerm = partialName.toLowerCase();
+  return users.filter((user) => {
+    const firstName = (user.firstName || "").toLowerCase();
+    const lastName = (user.lastName || "").toLowerCase();
+    return firstName.includes(searchTerm) || lastName.includes(searchTerm);
+  });
+};
