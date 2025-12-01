@@ -29,5 +29,3 @@ export const deleteUser = (userId) => {
 };
 
 export const findUsersByRole = (role) => users.filter((user) => user.role === role);
-
-

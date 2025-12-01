@@ -7,7 +7,7 @@ export default [
     lastName: "Johnson",
     loginId: "alice_j",
     section: "S101",
-    role: "student",
+    role: "STUDENT",
     lastActivity: "2025-11-20",
     totalActivity: "15h 30m"
   },
@@ -19,7 +19,7 @@ export default [
     lastName: "Smith",
     loginId: "bob_smith",
     section: "S101",
-    role: "instructor",
+    role: "FACULTY",
     lastActivity: "2025-11-24",
     totalActivity: "45h 15m"
   },
@@ -31,7 +31,7 @@ export default [
     lastName: "Kotecha",
     loginId: "drumil_k",
     section: "S101",
-    role: "dean",
+    role: "ADMIN",
     lastActivity: "2025-11-25",
     totalActivity: "20h 00m"
   },
@@ -43,7 +43,7 @@ export default [
     lastName: "User",
     loginId: "test_user",
     section: "S102",
-    role: "student",
+    role: "STUDENT",
     lastActivity: "2025-11-18",
     totalActivity: "8h 45m"
   },
