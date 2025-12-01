@@ -1,11 +1,20 @@
+import model from "./model.js";
 import db from "../Database/index.js";
+import { v4 as uuidv4 } from "uuid";
 
 let { users } = db;
 
 export const createUser = (user) => {
-  const newUser = { ...user, _id: Date.now().toString() };
-  users.push(newUser);
-  return newUser;
+  // Remove _id if it exists to avoid conflicts with database insert
+  delete user._id;
+  
+  const newUser = { ...user, _id: uuidv4() };
+  return model.create(newUser);
+  
+  // In-memory implementation:
+  // const newUser = { ...user, _id: Date.now().toString() };
+  // users.push(newUser);
+  // return newUser;
 };
 
 export const findAllUsers = () => users;
