@@ -1,5 +1,5 @@
 import express from 'express';
-// import mongoose from "mongoose";
+import mongoose from "mongoose";
 
 import Hello from "./Hello.js"
 import Lab5 from "./Lab5/index.js";
@@ -8,13 +8,13 @@ import UserRoutes from "./Kambaz/Users/routes.js";
 import CourseRoutes from "./Kambaz/Courses/routes.js";
 import ModuleRoutes from "./Kambaz/Modules/routes.js";
 import AssignmentRoutes from "./Kambaz/Assignments/routes.js";
+import EnrollmentsRoutes from "./Kambaz/Enrollments/routes.js";
 import session from "express-session"; 
 import "dotenv/config"; 
 const app = express()
 
-// MongoDB connection disabled - using in-memory database
-// const CONNECTION_STRING = process.env.DATABASE_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kambaz"
-// mongoose.connect(CONNECTION_STRING);
+const CONNECTION_STRING = process.env.DATABASE_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kambaz"
+mongoose.connect(CONNECTION_STRING);
 
 app.use(cors({
     credentials: true,
@@ -62,6 +62,7 @@ app.use(session(sessionOptions));
 UserRoutes(app);
 CourseRoutes(app);
 AssignmentRoutes(app);
+EnrollmentsRoutes(app);
 Lab5(app);
 // Root route: helpful message for browser requests to '/'
 app.get('/', (req, res) => {
