@@ -3,12 +3,15 @@ import * as assignmentsDao from "./dao.js";
 export default function AssignmentRoutes(app) {
   const findAllAssignments = async (req, res) => {
     const { course } = req.query;
+    console.log("🌐 API: GET /api/assignments - Query params:", req.query);
     if (course) {
       const assignments = await assignmentsDao.findAssignmentsByCourse(course);
+      console.log("✅ API: Returning", assignments.length, "assignments for course", course);
       res.json(assignments);
       return;
     }
     const assignments = await assignmentsDao.findAllAssignments();
+    console.log("✅ API: Returning", assignments.length, "total assignments");
     res.json(assignments);
   };
 

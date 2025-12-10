@@ -2,10 +2,12 @@ import model from "./model.js";
 import { v4 as uuidv4 } from "uuid";
 
 export function findAllAssignments() {
-  return model.find();
+  console.log("📊 DAO: Finding all assignments");
+  return model.find({});
 }
 
 export function findAssignmentsByCourse(courseId) {
+  console.log("📊 DAO: Finding assignments for course:", courseId);
   return model.find({ course: courseId });
 }
 
