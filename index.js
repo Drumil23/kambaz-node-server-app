@@ -14,9 +14,13 @@ import "dotenv/config";
 import UserModel from "./Kambaz/Users/model.js";
 import CourseModel from "./Kambaz/Courses/model.js";
 import EnrollmentModel from "./Kambaz/Enrollments/model.js";
+import AssignmentModel from "./Kambaz/Assignments/model.js";
+import ModuleModel from "./Kambaz/Modules/model.js";
 import users from "./Kambaz/Database/users.js";
 import courses from "./Kambaz/Database/courses.js";
 import enrollments from "./Kambaz/Database/enrollments.js";
+import assignments from "./Kambaz/Database/assignments.js";
+import modules from "./Kambaz/Database/modules.js";
 
 const app = express()
 
@@ -116,17 +120,23 @@ app.post('/api/admin/seed', async (req, res) => {
     await UserModel.deleteMany({});
     await CourseModel.deleteMany({});
     await EnrollmentModel.deleteMany({});
+    await AssignmentModel.deleteMany({});
+    await ModuleModel.deleteMany({});
     
     await UserModel.insertMany(users);
     await CourseModel.insertMany(courses);
     await EnrollmentModel.insertMany(enrollments);
+    await AssignmentModel.insertMany(assignments);
+    await ModuleModel.insertMany(modules);
     
     res.json({ 
       message: 'Database seeded successfully',
       counts: {
         users: users.length,
         courses: courses.length,
-        enrollments: enrollments.length
+        enrollments: enrollments.length,
+        assignments: assignments.length,
+        modules: modules.length
       }
     });
   } catch (error) {
